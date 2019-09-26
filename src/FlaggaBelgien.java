@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import javafx.application.Application;
 import javafx.stage.Stage;
 public class FlaggaBelgien extends Application {
-
     @Override
     public void start(Stage primaryStage) {
         Rectangle black = new Rectangle();
@@ -30,15 +29,31 @@ public class FlaggaBelgien extends Application {
         red.setWidth(300);
         red.setFill(Color.RED);
 
-        BorderPane fra = new BorderPane();
-        Scene scene = new Scene(fra, 900, 450);
-        fra.setLeft(black);
-        fra.setCenter(yellow);
-        fra.setRight(red);
+        BorderPane flag = new BorderPane();
+        Scene scene = new Scene(flag, 900, 450);
+        flag.setLeft(black);
+        flag.setCenter(yellow);
+        flag.setRight(red);
         primaryStage.setTitle("Belgiens flagga\n");
         primaryStage.setScene(scene);
         primaryStage.show();
+// Rectangle blue = new Rectangle();
+//        blue.setHeight(450);
+//        blue.setWidth(300);
+//        blue.setFill(Color.BLUE);
 
+//        Rectangle red = new Rectangle();
+//        red.setHeight(450);
+//        red.setWidth(300);
+//        red.setFill(Color.RED);
+//
+//      BorderPane flag = new BorderPane();
+//      Scene scene = new Scene(flag, 900, 450);
+//      flag.setLeft(blue);
+//      flag.setRight(red);
+//      primaryStage.setTitle("Frankrikes flagga\n");
+//      primaryStage.setScene(scene);
+//      primaryStage.show(); //
     }
 
 
