@@ -16,22 +16,22 @@ public class FlaggaBelgien extends Application {
     @Override
     public void start(Stage primaryStage) {
         Rectangle black = new Rectangle();
-        black.setHeight(300);
-        black.setWidth(200);
+        black.setHeight(450);
+        black.setWidth(300);
         black.setFill(Color.BLACK);
 
         Rectangle yellow = new Rectangle();
-        yellow.setHeight(300);
-        yellow.setWidth(200);
+        yellow.setHeight(450);
+        yellow.setWidth(300);
         yellow.setFill(Color.YELLOW);
 
         Rectangle red = new Rectangle();
-        red.setHeight(300);
-        red.setWidth(200);
+        red.setHeight(450);
+        red.setWidth(300);
         red.setFill(Color.RED);
 
         BorderPane fra = new BorderPane();
-        Scene scene = new Scene(fra, 600, 300);
+        Scene scene = new Scene(fra, 900, 450);
         fra.setLeft(black);
         fra.setCenter(yellow);
         fra.setRight(red);
