@@ -11,7 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class Main extends Application implements EventHandler<ActionEvent> {
-
+String Numbers = "";
+TextField windowfield = new TextField();
     public void start(Stage stage) throws Exception {
         Button one = new Button();
         one.setText("1");
