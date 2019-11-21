@@ -5,16 +5,17 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 
-public class Main extends Application implements EventHandler<ActionEvent> {
-String Numbers = "";
-TextField windowfield = new TextField();
+
+public class Main extends Application {
+    String Numbers = "";
+    TextField windowfield = new TextField();
+    double numb1 = 0;
+    double numb2 = 0;
+    String operator = "";
+
     public void start(Stage stage) throws Exception {
-         Button one = new Button("1");
+        Button one = new Button("1");
         one.setMinSize(100, 100);
         Button two = new Button("2");
         two.setMinSize(100, 100);
@@ -38,15 +39,15 @@ TextField windowfield = new TextField();
         plus.setText("+");
         plus.setMinSize(100, 100);
         Button equals = new Button();
-        equals.setText("=");
+        equals.setText("=");    
         equals.setMinSize(100, 100);
         Button minus = new Button();
         minus.setText("-");
         minus.setMinSize(100, 100);
 
-        TextField Window = new TextField();
-        Window.setMinSize(430, 100);
-        Window.setEditable(false);
+
+        windowfield.setMinSize(430, 100);
+        windowfield.setEditable(false);
 
 
         BorderPane border = new BorderPane();
@@ -55,7 +56,6 @@ TextField windowfield = new TextField();
         layout.setHgap(10);
         layout.setVgap(10);
         layout.setMinSize(380, 800);
-        layout.add(Window, 0, 0);
 
         layout.add(one, 0, 1);
         layout.add(two, 1, 1);
@@ -74,7 +74,8 @@ TextField windowfield = new TextField();
 
         layout.add(zero, 1, 4);
 
-         one.setOnAction(event -> {
+
+        one.setOnAction(event -> {
             numbfield(one.getText());
         });
         two.setOnAction(event -> {
@@ -110,30 +111,37 @@ TextField windowfield = new TextField();
         plus.setOnAction(event ->{
             plusminus(plus.getText());
         });
-        minus.setOnAction(this);
-        plus.setOnAction(this);
-        equals.setOnAction(this);
-        Window.setOnAction(this);
-        border.setTop(Window);
+        equals.setOnAction(event ->{
+            windowfield.setText(calculate()+"");
+            Numbers=windowfield.getText();
+            numb1=Double.parseDouble(Numbers);
+            numb2=0;
+        });
+        border.setTop(windowfield);
         border.setCenter(layout);
-
 
         Scene scene = new Scene(border, 430, 550);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
-    
-     public void numbfield(String s) {
+
+    public void numbfield(String s) {
         Numbers += s;
         windowfield.setText(Numbers);
     }
-    
-    public static void main(String[] args) { launch(args);}
-    @Override
-    public void handle(ActionEvent actionEvent) {
-        
+    public void plusminus(String s){
+        numb1 = Double.parseDouble(Numbers);
+        Numbers="";
+        operator=s;
 
     }
+    
+   
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+
 }
 
