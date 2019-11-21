@@ -19,7 +19,7 @@ public class Main extends Application {
         one.setMinSize(100, 100);
         Button two = new Button("2");
         two.setMinSize(100, 100);
-        Button three = new Button("3";
+        Button three = new Button("3");
         three.setMinSize(100, 100);
         Button four = new Button("4");
         four.setMinSize(100, 100);
