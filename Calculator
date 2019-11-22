@@ -39,42 +39,41 @@ public class Main extends Application {
         plus.setText("+");
         plus.setMinSize(100, 100);
         Button equals = new Button();
-        equals.setText("=");    
+        equals.setText("=");
         equals.setMinSize(100, 100);
         Button minus = new Button();
         minus.setText("-");
         minus.setMinSize(100, 100);
 
 
-        windowfield.setMinSize(430, 100);
-        windowfield.setEditable(false);
-
+        windowfield.setMinSize(430, 550);
+        windowfield.setEditable(false); //.setEditable(false) accepterar inte att inputs från tangetbordet i rutan
+//fixade felaktig bredd på "windowfield"
 
         BorderPane border = new BorderPane();
 
         GridPane layout = new GridPane();
         layout.setHgap(10);
         layout.setVgap(10);
-        layout.setMinSize(380, 800);
-
+        layout.setMinSize(430, 550);
+//mellanrum och storlek på fönster rutan
         layout.add(one, 0, 1);
         layout.add(two, 1, 1);
         layout.add(three, 2, 1);
         layout.add(plus, 3, 1);
-
+//row 1
         layout.add(four, 0, 2);
         layout.add(five, 1, 2);
         layout.add(six, 2, 2);
         layout.add(minus, 3, 2);
-
+//row 2
         layout.add(seven, 0, 3);
         layout.add(eight, 1, 3);
         layout.add(nine, 2, 3);
         layout.add(equals, 3, 3);
-
+//row 3
         layout.add(zero, 1, 4);
-
-
+//row 4
         one.setOnAction(event -> {
             numbfield(one.getText());
         });
@@ -117,12 +116,13 @@ public class Main extends Application {
             numb1=Double.parseDouble(Numbers);
             numb2=0;
         });
+        
         border.setTop(windowfield);
         border.setCenter(layout);
 
         Scene scene = new Scene(border, 430, 550);
         stage.setScene(scene);
-        stage.setResizable(false);
+        stage.setResizable(false); //fönstret är låst storlek
         stage.show();
     }
 
@@ -134,14 +134,18 @@ public class Main extends Application {
         numb1 = Double.parseDouble(Numbers);
         Numbers="";
         operator=s;
-
     }
-    
-   
+    public double calculate(){
+        numb2=Double.parseDouble(Numbers);
+        if (operator.equals("+")){
+            return numb1 + numb2;
+        }else if (operator.equals("-")){
+            return numb1 - numb2;
+        }else {
+            return 0;
+        }
+    }
     public static void main(String[] args) {
         launch(args);
     }
-
-
 }
-
